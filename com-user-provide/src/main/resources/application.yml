@@ -1,0 +1,53 @@
+server:
+  port: 8070
+#  servlet:
+#    暂时不加前缀
+#    context-path: /api
+
+#日志信息
+logging:
+  config: classpath:logback.xml
+  level:
+    #开发期间打印sql 级别是debug
+    com.user.dao: debug
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/partner_dev?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #初始化连接池
+      initial-size: 5
+      #连接池最小
+      min-idle: 5
+      #最大
+      max-active: 30
+      #检测关闭空闲连接 单位 hs
+      time-between-eviction-runs-millis: 60000
+      #去掉后 . 监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.tcc.entity
+  global-config:
+    id-type: 0
+
+
+dubbo:
+  application:
+    name: userProvide
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    check: true
+  scan:
+    base-packages: com.user.facadeImpl
+  protocol:
+    name: dubbo
+    #我惊呆了 ， 这里是integer类型 居然要加一个引号  无法理解
+    port: '20881'
+  provider:
+    # 提供者 ， 只能被调用一次
+    retries: '0'

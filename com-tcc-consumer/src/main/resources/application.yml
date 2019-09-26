@@ -1,0 +1,34 @@
+server:
+  port: 8080
+#  servlet:
+#    暂时不加前缀  https://blog.csdn.net/qq_39597203/article/details/86065353  解决provide 未注册到zk的问题
+#    context-path: /api
+
+#日志信息
+logging:
+  config: classpath:logback.xml
+
+#https://blog.csdn.net/fuyuwei2015/article/details/72836075/  配置文件详解
+dubbo:
+  application:
+    name: tccConsumer
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    timeout: 5000
+    check: true
+  protocol:
+    name: dubbo
+    #发布dubbo需要对外的协议（dubbo）和端口（20880），20880是dubbo默认提供的端口，
+    # 若一台机器发布多个dubbo服务，则此端口需要显示配置，多个dubbo服务端口需要不一样，否则会端口冲突
+    port: '20883'
+  consumer:
+    #远程服务调用重试次数，不包括第一次调用，不需要重试请设为0 , !! debug的时候 ， 会重复调用 ， 建议开发的时候设置为 0
+    retries: '0'
+    #对每个提供者的最大连接数，rmi、http、hessian等短连接协议表示限制连接数，dubbo等长连接协表示建立的长连接个数
+    #connections: 目前不知道设置多大比较好 ， 需要去看看配置
+    #负载均衡策略，可选值：random,roundrobin,leastactive，分别表示：随机，轮循，最少活跃调用
+    #loadbalance: 目前无多集群 ， 可不配
+    #选择动态代理实现策略，可选：javassist, jdk 好像默认就是javassist
+    proxy: javassist
+    #每服务消费者每服务每方法最大并发调用数
+    actives: 10

@@ -1,0 +1,22 @@
+server:
+  port: 8040
+#  servlet:
+#    暂时不加前缀
+#    context-path: /api
+
+#日志信息
+logging:
+  config: classpath:logback.xml
+
+spring:
+  rabbitmq:
+    # 地址
+    host: 192.168.233.129
+    # 用户名
+    username: admin
+    # 密码
+    password: admin
+    # 端口号 默认 5672 RPC连接的  15672 是web端的
+    port: 5672
+    # 连接超时时间  使用的是jdk 8  Duration 线程安全的 单位 ms
+    #connection-timeout: 5000

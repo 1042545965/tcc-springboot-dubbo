@@ -1,0 +1,42 @@
+server:
+  port: 8050
+#  servlet:
+#    暂时不加前缀
+#    context-path: /api
+
+#日志信息
+logging:
+  config: classpath:logback.xml
+
+#dubbo:
+#  application:
+#    name: cacheProvide
+#  registry:
+#    address: zookeeper://127.0.0.1:2181
+#    check: true
+#  scan:
+#    base-packages: com.tcc.redis.cacheImpl
+#  protocol:
+#    name: dubbo
+#    #我惊呆了 ， 这里是integer类型 居然要加一个引号  无法理解
+#    port: '20881'
+#  provider:
+#    # 提供者 ， 只能被调用一次
+#    retries: '0'
+spring:
+  #yml elasticsearch部分
+  elasticsearch:
+    jest:
+      uris: http://192.168.233.129:9200
+      #读取超时时间  单位 (ms)
+      read-timeout: 5000
+      #连接超时 3000 ms
+      connection-timeout: 3000
+      # 登陆名密码
+      username:
+      password:
+      proxy:
+        host:
+        port:
+      # 感觉这个参数是 ES 事务的意思 ， 但是不确定 ，需要研究
+      multi-threaded: true

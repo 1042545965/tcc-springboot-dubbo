@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.user.dao.UserDao">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.tcc.entity.User">
+                    <id column="id" property="id" />
+                    <result column="user_name" property="userName" />
+                    <result column="password" property="password" />
+                    <result column="nick_name" property="nickName" />
+                    <result column="user_mobile" property="userMobile" />
+                    <result column="user_status" property="userStatus" />
+                    <result column="create_time" property="createTime" />
+                    <result column="user_type" property="userType" />
+                    <result column="open_id" property="openId" />
+                    <result column="user_sex" property="userSex" />
+                    <result column="user_city" property="userCity" />
+                    <result column="user_area" property="userArea" />
+                    <result column="user_province" property="userProvince" />
+                    <result column="unionid" property="unionid" />
+                    <result column="fail_times" property="failTimes" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+        id, user_name AS userName, password, nick_name AS nickName, user_mobile AS userMobile, user_status AS userStatus, create_time AS createTime, user_type AS userType, open_id AS openId, user_sex AS userSex, user_city AS userCity, user_area AS userArea, user_province AS userProvince, unionid, fail_times AS failTimes
+    </sql>
+</mapper>

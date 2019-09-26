@@ -1,0 +1,12 @@
+app:
+  id: dkz_test_one_apollo
+
+apollo:
+  meta: http://192.168.233.131:8080
+  #cluster: myCluster
+  #cacheDir: /opt/testDir
+  bootstrap:
+    enable: true
+    namespaces: application
+
+env: DEV

@@ -1,8 +1,9 @@
 app:
-  id: dkz_test_one_apollo
+  id: 100004468
 
 apollo:
-  meta: http://192.168.233.131:8080
+  # 本地启动 apollo 集群 进行调用
+  meta: http://192.168.233.135:8080,http://192.168.199.13:8080
   #cluster: myCluster
   #cacheDir: /opt/testDir
   bootstrap:

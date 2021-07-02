@@ -33,7 +33,7 @@
         <jedis.version>2.9.0</jedis.version>
         <junit.version>4.12</junit.version>
         <jest.version>2.0.3</jest.version>
-        <elasticsearch.version>1.7.1</elasticsearch.version>
+        <elasticsearch.version>6.8.15</elasticsearch.version>
         <apollo.version>1.3.0</apollo.version>
         <httpclient.version>4.5.5</httpclient.version>
     </properties>
